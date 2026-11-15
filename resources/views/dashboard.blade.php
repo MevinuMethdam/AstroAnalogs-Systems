@@ -396,6 +396,130 @@
             white-space: nowrap;
         }
 
+        /* =====================================================================
+           SHARED PAGE HERO BANNER
+           ===================================================================== */
+        .page-hero-banner {
+            position: relative;
+            isolation: isolate;
+            min-height: 154px;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 26px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #070b18;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+        }
+        .page-hero-banner-image {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 52%;
+            opacity: 0.92;
+        }
+        .page-hero-banner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: linear-gradient(90deg,
+                rgba(5, 7, 13, 0.94) 0%,
+                rgba(5, 7, 13, 0.78) 37%,
+                rgba(5, 7, 13, 0.36) 72%,
+                rgba(5, 7, 13, 0.16) 100%);
+        }
+        .page-hero-banner-content {
+            min-height: 154px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 24px 30px;
+            max-width: 760px;
+        }
+        .page-hero-banner-eyebrow {
+            color: #93c5fd;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .page-hero-banner-title {
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 22px;
+            line-height: 1.25;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            margin: 0;
+        }
+        .page-hero-banner-description {
+            color: rgba(226, 232, 240, 0.88);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px;
+            line-height: 1.75;
+            font-weight: 400;
+            margin-top: 7px;
+            max-width: 650px;
+        }
+
+        /* Sidebar brand mark alignment in expanded and collapsed states. */
+        .sidebar-logo-mark {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            overflow: hidden;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            background: linear-gradient(145deg, rgba(224, 72, 38, 0.36), rgba(13, 27, 61, 0.96));
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 6px 20px rgba(17, 55, 135, 0.28);
+        }
+        .sidebar-logo-mark img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        #sidebar-toggle-button {
+            top: 38px;
+            right: -13px;
+            width: 32px;
+            height: 32px;
+            padding: 0;
+        }
+        #main-sidebar.sidebar-collapsed #sidebar-brand-box {
+            justify-content: flex-start;
+            padding-left: 12px;
+            padding-right: 8px;
+        }
+        #main-sidebar.sidebar-collapsed #sidebar-brand-box > div {
+            justify-content: flex-start;
+            gap: 0;
+        }
+        #main-sidebar.sidebar-collapsed .sidebar-logo-mark {
+            width: 44px;
+            height: 44px;
+            flex-basis: 44px;
+        }
+
+        @media (max-width: 767px) {
+            .page-hero-banner,
+            .page-hero-banner-content { min-height: 132px; }
+            .page-hero-banner-content { padding: 19px 20px; }
+            .page-hero-banner-title { font-size: 19px; }
+            .page-hero-banner-description { font-size: 11px; max-width: 100%; }
+        }
+
         @media print {
             body { overflow: visible !important; background: #06070b !important; }
             #main-sidebar, header, #mission-drawer { display: none !important; }
@@ -416,15 +540,15 @@
     <aside id="main-sidebar" class="relative my-4 ml-4 h-[calc(100vh-32px)] bg-[#11141d]/90 backdrop-blur-2xl rounded-[32px] border border-white/10 transition-all duration-300 ease-in-out flex flex-col flex-shrink-0 z-40 shadow-[0_8px_32px_0_rgba(0,0,0,0.45)] w-72">
         
         <!-- Circular Edge Collapse Button -->
-        <button onclick="toggleSidebar()" title="Toggle Sidebar" class="absolute -right-3.5 top-10 bg-[#1a1f2c] border border-white/15 rounded-full p-1.5 shadow-md hover:bg-white/10 transition-all z-50 hover:scale-110 cursor-pointer flex items-center justify-center text-slate-200 hover:text-white">
+        <button id="sidebar-toggle-button" onclick="toggleSidebar()" title="Toggle Sidebar" aria-label="Toggle sidebar" class="absolute -right-3.5 top-10 bg-[#1a1f2c] border border-white/15 rounded-full p-1.5 shadow-md hover:bg-white/10 transition-all z-50 hover:scale-110 cursor-pointer flex items-center justify-center text-slate-200 hover:text-white">
             <i id="sidebar-toggle-icon" class="fa-solid fa-chevron-left text-[11px] w-4 h-4 flex items-center justify-center"></i>
         </button>
 
         <!-- Brand Logo Header -->
         <div id="sidebar-brand-box" class="flex items-center px-8 mb-6 mt-8 transition-all duration-300">
             <div class="flex items-center gap-3 overflow-hidden whitespace-nowrap w-full">
-                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#e04826] to-[#991b1b] flex items-center justify-center flex-shrink-0 shadow-[0_6px_20px_rgba(224,72,38,0.4)] border border-white/20">
-                    <i class="fa-solid fa-earth-americas text-white text-lg"></i>
+                <div class="sidebar-logo-mark" title="AstroAnalogs">
+                    <img src="{{ asset('assets/astroanalogs-logo.png') }}" alt="AstroAnalogs planetary logo" width="512" height="512" loading="eager" decoding="async">
                 </div>
                 <div class="sidebar-label-text flex flex-col transition-opacity duration-200">
                     <div class="flex items-baseline gap-1 pb-0.5">
@@ -590,6 +714,16 @@
                 <!-- Ambient Radial Glow Orbs -->
                 <div class="absolute top-[-20%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-sky-500/10 to-indigo-500/5 blur-[120px] pointer-events-none z-[-2]"></div>
                 <div class="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-tl from-[#e04826]/12 to-amber-500/5 blur-[140px] pointer-events-none z-[-2]"></div>
+
+                <!-- Shared page banner: its title and details update with the active page. -->
+                <div id="page-hero-banner" class="page-hero-banner relative z-10 mb-6">
+                    <img class="page-hero-banner-image" src="{{ asset('assets/astroanalogs-banner.jpg') }}" alt="Cratered planetary world in a deep-space nebula" width="1800" height="600" fetchpriority="high">
+                    <div class="page-hero-banner-content">
+                        <p id="page-hero-eyebrow" class="page-hero-banner-eyebrow">MISSION CONTROL / OVERVIEW</p>
+                        <h2 id="page-hero-title" class="page-hero-banner-title">Mission Control</h2>
+                        <p id="page-hero-description" class="page-hero-banner-description">Monitor planetary analog stations, environmental comparisons and mission research from one workspace.</p>
+                    </div>
+                </div>
 
                 <!-- ================================================================= -->
                 <!-- PAGE 1: DASHBOARD & SIMILARITY ANALYSIS                           -->
@@ -1032,7 +1166,7 @@
                         <div>
                             <div class="flex items-center gap-2.5">
                                 <span class="text-2xl">🪐</span>
-                                <h1 class="text-[26px] font-bold text-white tracking-tight leading-none">Planetary Targets (ග්‍රහලෝක ඉලක්ක)</h1>
+                                <h1 class="text-[26px] font-bold text-white tracking-tight leading-none">Planetary Targets</h1>
                             </div>
                             <p class="text-[12px] font-medium text-slate-400 mt-1.5">Extraterrestrial exploration zones across Lunar Artemis Landing Sites &amp; Martian Paleolake Basins</p>
                         </div>
@@ -1112,7 +1246,7 @@
                         <div>
                             <div class="flex items-center gap-2.5">
                                 <span class="text-2xl">🌍</span>
-                                <h1 class="text-[26px] font-bold text-white tracking-tight leading-none">Terrestrial Database (පෘථිවි ස්ථාන ගබඩාව)</h1>
+                                <h1 class="text-[26px] font-bold text-white tracking-tight leading-none">Terrestrial Database</h1>
                             </div>
                             <p class="text-[12px] font-medium text-slate-400 mt-1.5">"Look Beyond the Obvious" — Categorized Niche Earth Analogs for Subsurface Habitats, Extremophile Biosignatures &amp; Rover Validation</p>
                         </div>
@@ -1140,7 +1274,7 @@
                                 <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">01 · Subsurface / Lava Tubes</span>
                                 <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300">LUNAR HABITAT SHIELD</span>
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">භූගත ලාවා උමං: Natural basaltic roofs shield Artemis astronauts from cosmic radiation (GCR), micrometeorites, and ±150°C lunar thermal swings.</p>
+                            <p class="text-xs text-slate-300 leading-relaxed">Underground lava tubes: Natural basaltic roofs can shield Artemis astronauts from cosmic radiation (GCR), micrometeorites, and lunar thermal swings of approximately ±150°C.</p>
                         </div>
 
                         <div class="bg-white/[0.03] backdrop-blur-xl p-5 rounded-[24px] border border-emerald-400/20">
@@ -1148,7 +1282,7 @@
                                 <span class="text-xs font-bold text-emerald-300 uppercase tracking-wider">02 · Extreme Biology Sites</span>
                                 <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300">EXTREMOPHILE BIOSIGNATURES</span>
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">අධික ලවණතා/ආම්ලික ස්ථාන: Hyper-acidic iron brines &amp; evaporite halite crusts hosting chemolithoautotrophic microbes analogous to ancient Mars.</p>
+                            <p class="text-xs text-slate-300 leading-relaxed">High-salinity and acidic sites: Hyper-acidic iron brines and evaporite halite crusts can host chemolithoautotrophic microbes analogous to ancient Mars.</p>
                         </div>
 
                         <div class="bg-white/[0.03] backdrop-blur-xl p-5 rounded-[24px] border border-sky-400/20">
@@ -1156,7 +1290,7 @@
                                 <span class="text-xs font-bold text-sky-300 uppercase tracking-wider">03 · Arid &amp; Volcanic Terrains</span>
                                 <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/15 text-sky-300">ROVER &amp; ISRU TESTBEDS</span>
                             </div>
-                            <p class="text-xs text-slate-300 leading-relaxed">කාන්තාර සහ ගිනිකඳු පරිසර: Anhydrous perchlorate soils, polar permafrost, and basaltic tephra for rover traction &amp; oxygen extraction.</p>
+                            <p class="text-xs text-slate-300 leading-relaxed">Desert and volcanic environments: Anhydrous perchlorate soils, polar permafrost, and basaltic tephra provide test environments for rover traction and oxygen-extraction research.</p>
                         </div>
                     </div>
 
@@ -1307,7 +1441,7 @@
                         <div>
                             <div class="flex items-center gap-2.5">
                                 <span class="text-2xl">📄</span>
-                                <h1 class="text-[26px] font-bold text-white tracking-tight leading-none">Scientific Report &amp; Documentation (විද්‍යාත්මක පදනම)</h1>
+                                <h1 class="text-[26px] font-bold text-white tracking-tight leading-none">Scientific Report &amp; Documentation</h1>
                             </div>
                             <p class="text-[12px] font-medium text-slate-400 mt-1.5">NASA Space Apps Judging Specification — Quantitative Similarity Algorithm, Multi-Sensor Data Fusion &amp; Boundary Limitations</p>
                         </div>
@@ -1401,7 +1535,7 @@
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                             <div>
                                 <span class="px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/30 text-[10px] font-mono font-bold text-amber-300">03 · SCIENTIFIC HONESTY &amp; BOUNDARY LIMITATIONS</span>
-                                <h2 class="text-[19px] font-bold text-white mt-2">Where the Analogy Breaks Down (අසමානතා විද්‍යාත්මකව පිළිගැනීම)</h2>
+                                <h2 class="text-[19px] font-bold text-white mt-2">Where the Analogy Breaks Down (Scientific Limitations)</h2>
                             </div>
                             <span class="text-xs text-slate-400 italic">"An analog does not have to match everything — knowing where it diverges prevents mission failure."</span>
                         </div>
@@ -1963,11 +2097,10 @@
 
             if (isSidebarCollapsed) {
                 sidebar.classList.remove('w-72');
-                sidebar.classList.add('w-24');
+                sidebar.classList.add('w-24', 'sidebar-collapsed');
                 icon.classList.remove('fa-chevron-left');
                 icon.classList.add('fa-chevron-right');
-                brandBox.classList.remove('px-8');
-                brandBox.classList.add('justify-center', 'px-0');
+                brandBox.classList.remove('px-8', 'justify-center', 'px-0');
                 labels.forEach(el => el.classList.add('hidden'));
                 if (matchmakerSubnav) matchmakerSubnav.classList.add('hidden');
                 navBtns.forEach(btn => {
@@ -1975,7 +2108,7 @@
                     btn.classList.add('justify-center', 'px-0');
                 });
             } else {
-                sidebar.classList.remove('w-24');
+                sidebar.classList.remove('w-24', 'sidebar-collapsed');
                 sidebar.classList.add('w-72');
                 icon.classList.remove('fa-chevron-right');
                 icon.classList.add('fa-chevron-left');
@@ -2749,8 +2882,62 @@
             switchPage('similarity');
         };
 
-        // 6. Page Navigation (All pages supported)
+        // 6. Shared page banner content and page navigation.
+        const PAGE_HERO_CONTENT = {
+            similarity: {
+                eyebrow: 'MISSION CONTROL / OVERVIEW',
+                title: 'Mission Control',
+                description: 'Monitor planetary analog stations, environmental comparisons and mission research from one workspace.'
+            },
+            targets: {
+                eyebrow: 'PLANETARY EXPLORATION / TARGETS',
+                title: 'Planetary Targets',
+                description: 'Explore candidate lunar and Martian regions, landing zones, crater systems and mission imagery.'
+            },
+            terrestrial: {
+                eyebrow: 'EARTH SCIENCE / ANALOG REPOSITORY',
+                title: 'Terrestrial Database',
+                description: 'Review terrestrial field environments that help validate planetary geology, habitability and rover technologies.'
+            },
+            matchmaker: {
+                eyebrow: 'RESEARCH INTELLIGENCE / ANALOG MATCHING',
+                title: 'AI Matchmaker',
+                description: 'Discover research leads or run a custom analog scan using environmental, terrain and mineral criteria.'
+            },
+            science: {
+                eyebrow: 'RESEARCH METHODS / DOCUMENTATION',
+                title: 'Scientific Report',
+                description: 'Review the comparison model, weighted scoring method, assumptions, limitations and scientific evidence.'
+            },
+            globe: {
+                eyebrow: 'GEOSPATIAL VIEW / EARTH OBSERVATION',
+                title: '3D Earth & GIBS',
+                description: 'Inspect terrestrial analog coordinates and available Earth-observation imagery on the interactive globe.'
+            },
+            telemetry: {
+                eyebrow: 'NASA DATA / ENVIRONMENTAL TELEMETRY',
+                title: 'NASA Live Telemetry',
+                description: 'View NASA POWER environmental parameters and searchable CMR observation archive records.'
+            },
+            topography: {
+                eyebrow: 'TERRAIN ANALYSIS / DIGITAL ELEVATION',
+                title: '3D DEM Terrain',
+                description: 'Compare terrain profiles and elevation-model visualizations for terrestrial and planetary analog sites.'
+            }
+        };
+
+        function updatePageHero(pageName) {
+            const content = PAGE_HERO_CONTENT[pageName] || PAGE_HERO_CONTENT.similarity;
+            const eyebrow = document.getElementById('page-hero-eyebrow');
+            const title = document.getElementById('page-hero-title');
+            const description = document.getElementById('page-hero-description');
+            if (eyebrow) eyebrow.textContent = content.eyebrow;
+            if (title) title.textContent = content.title;
+            if (description) description.textContent = content.description;
+        }
+
         window.switchPage = function(pageName) {
+            updatePageHero(pageName);
             ['similarity', 'targets', 'terrestrial', 'globe', 'telemetry', 'topography', 'science', 'matchmaker'].forEach(p => {
                 const pageEl = document.getElementById(`page-${p}`);
                 const navEl = document.getElementById(`nav-${p}`);
@@ -4254,6 +4441,7 @@
         };
 
         renderNotifications();
+        updatePageHero('similarity');
         syncAllControls();
         selectAnalogRecord(activeRecordId);
         // Dashboard is the initially visible page, so attach its 3D Earth renderer immediately.
