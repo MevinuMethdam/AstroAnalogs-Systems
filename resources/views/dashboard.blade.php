@@ -107,9 +107,6 @@
             filter: drop-shadow(0 0 12px rgba(224, 72, 38, 0.55));
         }
 
-        /* =====================================================================
-           INPUTS & PILLS
-           ===================================================================== */
         .space-input {
             background-color: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(8px);
@@ -208,9 +205,6 @@
             background: linear-gradient(90deg, #38bdf8, #e04826);
         }
 
-        /* =====================================================================
-           SOL CYCLE PILLS & MARS HORIZON GLOW
-           ===================================================================== */
         .sol-pill {
             display: flex;
             flex-direction: column;
@@ -258,9 +252,6 @@
         .reticle-crosshair::before { top: 50%; left: -7px; right: -7px; height: 1px; }
         .reticle-crosshair::after { left: 50%; top: -7px; bottom: -7px; width: 1px; }
 
-        /* =====================================================================
-           DRAWER NODE MATRIX & BOARDING PASS TICKET
-           ===================================================================== */
         .node-slot {
             height: 30px;
             border-radius: 10px;
@@ -356,9 +347,6 @@
             box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.75), 0 0 12px rgba(148, 163, 184, 0.25);
         }
 
-        /* =====================================================================
-           CLEAN BORDERLESS-SIDE TABLE
-           ===================================================================== */
         .clean-table {
             width: 100%;
             text-align: left;
@@ -396,9 +384,6 @@
             white-space: nowrap;
         }
 
-        /* =====================================================================
-           SHARED PAGE HERO BANNER
-           ===================================================================== */
         .page-hero-banner {
             position: relative;
             isolation: isolate;
@@ -469,7 +454,6 @@
             max-width: 650px;
         }
 
-        /* Sidebar brand mark alignment in expanded and collapsed states. */
         .sidebar-logo-mark {
             width: 44px;
             height: 44px;
@@ -529,22 +513,16 @@
 </head>
 <body class="flex h-screen bg-[#06070b] font-sans overflow-hidden relative text-slate-100">
 
-    <!-- DEEP SPACE ATMOSPHERIC LAYER -->
     <div class="cosmos-backdrop" aria-hidden="true">
         <div class="cosmos-stars"></div>
     </div>
 
-    <!-- ===================================================================== -->
-    <!-- FLOATING COLLAPSIBLE SIDEBAR                                          -->
-    <!-- ===================================================================== -->
     <aside id="main-sidebar" class="relative my-4 ml-4 h-[calc(100vh-32px)] bg-[#11141d]/90 backdrop-blur-2xl rounded-[32px] border border-white/10 transition-all duration-300 ease-in-out flex flex-col flex-shrink-0 z-40 shadow-[0_8px_32px_0_rgba(0,0,0,0.45)] w-72">
         
-        <!-- Circular Edge Collapse Button -->
         <button id="sidebar-toggle-button" onclick="toggleSidebar()" title="Toggle Sidebar" aria-label="Toggle sidebar" class="absolute -right-3.5 top-10 bg-[#1a1f2c] border border-white/15 rounded-full p-1.5 shadow-md hover:bg-white/10 transition-all z-50 hover:scale-110 cursor-pointer flex items-center justify-center text-slate-200 hover:text-white">
             <i id="sidebar-toggle-icon" class="fa-solid fa-chevron-left text-[11px] w-4 h-4 flex items-center justify-center"></i>
         </button>
 
-        <!-- Brand Logo Header -->
         <div id="sidebar-brand-box" class="flex items-center px-8 mb-6 mt-8 transition-all duration-300">
             <div class="flex items-center gap-3 overflow-hidden whitespace-nowrap w-full">
                 <div class="sidebar-logo-mark" title="AstroAnalogs">
@@ -560,7 +538,6 @@
             </div>
         </div>
 
-        <!-- Navigation Links -->
         <nav id="sidebar-nav" class="space-y-1 px-4 flex-1 overflow-y-auto hover-scroll">
             <button onclick="switchPage('similarity')" id="nav-similarity" title="Dashboard & Similarity" class="nav-link-btn w-full flex items-center gap-3.5 px-5 py-3 rounded-2xl text-[13.5px] font-bold transition-all duration-200 group cursor-pointer bg-transparent text-[#ff8b6e] shadow-[inset_3px_0_0_0_#e04826] border border-transparent">
                 <i class="fa-solid fa-table-columns w-5 h-5 flex items-center justify-center flex-shrink-0 transition-transform duration-200 group-hover:scale-110"></i>
@@ -634,7 +611,6 @@
             </button>
         </nav>
 
-        <!-- Bottom Action Section -->
         <div class="p-4 mt-auto border-t border-white/10 flex flex-col gap-2">
             <button onclick="returnToLanding()" title="Exit Console" class="flex items-center justify-center gap-2.5 w-full py-2.5 bg-transparent text-rose-300 rounded-2xl hover:bg-white/5 hover:text-rose-200 transition-colors font-bold text-[13.5px] cursor-pointer border border-transparent px-4">
                 <i class="fa-solid fa-right-from-bracket text-sm"></i>
@@ -643,14 +619,9 @@
         </div>
     </aside>
 
-    <!-- ===================================================================== -->
-    <!-- MAIN RIGHT WORKSPACE WRAPPER                                          -->
-    <!-- ===================================================================== -->
     <div class="flex-1 flex flex-col overflow-hidden relative z-10">
 
-        <!-- TOP MINIMALIST UTILITY BAR -->
         <header class="flex justify-between items-center px-8 pt-5 pb-2 z-30 bg-transparent shrink-0">
-            <!-- Left Live NASA Connection Status Pills -->
             <div class="hidden xl:flex items-center gap-2 text-[11px] font-mono">
                 <span class="px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-slate-300 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -670,14 +641,12 @@
                 </span>
             </div>
 
-            <!-- Right Date/Clock + Bell Dropdown + Mission Drawer Toggle -->
             <div class="flex items-center gap-4 ml-auto">
                 <div class="hidden md:block mr-2 text-right">
                     <span id="header-formatted-date" class="text-[13px] font-bold text-slate-400 tracking-wide">15 Nov 2026, Sunday</span>
                     <span id="utc-clock" class="ml-2 text-[12px] font-mono font-semibold text-sky-400">00:00:00 UTC</span>
                 </div>
 
-                <!-- Notification Bell Dropdown -->
                 <div class="relative">
                     <button onclick="toggleNotificationDropdown()" class="w-10 h-10 rounded-full bg-white/[0.05] border border-white/10 shadow-sm flex items-center justify-center hover:bg-white/10 transition-all relative cursor-pointer text-slate-300 hover:text-[#ff8b6e]">
                         <i class="fa-regular fa-bell text-sm"></i>
@@ -693,29 +662,22 @@
                     </div>
                 </div>
 
-                <!-- Mission Profile & Boarding Pass Drawer Toggle -->
                 <button onclick="toggleMissionDrawer(true)" title="Open Mission Control Drawer" class="w-10 h-10 rounded-full bg-white/[0.05] border border-white/10 shadow-sm flex items-center justify-center cursor-pointer hover:bg-white/10 hover:text-[#ff8b6e] text-slate-300 transition-all">
                     <i class="fa-solid fa-user-astronaut text-sm"></i>
                 </button>
             </div>
         </header>
 
-        <!-- ===================================================================== -->
-        <!-- MAIN SCROLLABLE INNER GLASS STAGE                                     -->
-        <!-- ===================================================================== -->
         <main class="flex-1 overflow-x-hidden overflow-y-auto px-8 pb-8 pt-2 hover-scroll">
             <div class="relative font-sans z-0 min-h-[calc(100vh-6rem)] bg-[#0c0f17]/75 backdrop-blur-[24px] rounded-[32px] border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] overflow-hidden p-6 mb-2">
                 
-                <!-- Subtle Dot Grid Pattern -->
                 <div class="absolute inset-0 z-[-3] opacity-[0.04] pointer-events-none"
                      style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEuNSIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg==');">
                 </div>
 
-                <!-- Ambient Radial Glow Orbs -->
                 <div class="absolute top-[-20%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-sky-500/10 to-indigo-500/5 blur-[120px] pointer-events-none z-[-2]"></div>
                 <div class="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-tl from-[#e04826]/12 to-amber-500/5 blur-[140px] pointer-events-none z-[-2]"></div>
 
-                <!-- Shared page banner: its title and details update with the active page. -->
                 <div id="page-hero-banner" class="page-hero-banner relative z-10 mb-6">
                     <img class="page-hero-banner-image" src="{{ asset('assets/astroanalogs-banner.jpg') }}" alt="Cratered planetary world in a deep-space nebula" width="1800" height="600" fetchpriority="high">
                     <div class="page-hero-banner-content">
@@ -725,12 +687,8 @@
                     </div>
                 </div>
 
-                <!-- ================================================================= -->
-                <!-- PAGE 1: DASHBOARD & SIMILARITY ANALYSIS                           -->
-                <!-- ================================================================= -->
                 <section id="page-similarity" class="relative z-10 w-full flex flex-col gap-6">
 
-                    <!-- Page Header Bar -->
                     <div class="flex flex-wrap items-center justify-between gap-4">
                         <div>
                             <h1 class="text-[26px] font-bold text-white tracking-tight leading-none">Dashboard</h1>
@@ -748,7 +706,6 @@
                         </div>
                     </div>
 
-                    <!-- Welcome Hero Banner -->
                     <div class="relative overflow-hidden bg-white/[0.03] backdrop-blur-2xl px-8 py-7 rounded-[32px] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
                         <div class="mars-horizon-glow pointer-events-none absolute -right-12 -bottom-44 w-80 h-80 rounded-full opacity-85"></div>
                         <div class="reticle-crosshair hidden md:block absolute right-16 bottom-8 pointer-events-none opacity-80"></div>
@@ -777,7 +734,6 @@
                             </div>
                         </div>
 
-                        <!-- Sol Cycle Interactive Selector Pills -->
                         <div class="relative z-10 flex items-center gap-2 bg-[#07090f]/75 backdrop-blur-xl p-2 rounded-full border border-white/10 mr-0 lg:mr-28">
                             <button type="button" onclick="selectSolCycle(this, 14)" class="sol-pill">
                                 <span class="text-[11px] font-display font-bold">14</span>
@@ -798,7 +754,6 @@
                         </div>
                     </div>
 
-                    <!-- MISSION CONTROL: TERRESTRIAL LOCATOR (shared 3D Earth scene) -->
                     <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
                         <div class="xl:col-span-8 bg-white/[0.03] backdrop-blur-2xl rounded-[32px] border border-white/10 overflow-hidden">
                             <div class="px-7 py-5 border-b border-white/10 flex flex-wrap justify-between items-center gap-3">
@@ -843,10 +798,8 @@
                         </div>
                     </div>
 
-                    <!-- ROW 1: 3 PRIMARY HERO CARDS -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         
-                        <!-- Card 1: Gradient Hero Card with Concentric Circles -->
                         <div class="h-[240px]">
                             <div class="relative overflow-hidden bg-gradient-to-br from-[#e04826] via-[#c93d1e] to-[#7c1d0b] p-8 rounded-[28px] text-white shadow-[0_16px_32px_-12px_rgba(224,72,38,0.45)] flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1 h-full cursor-default border border-white/20">
                                 <div class="absolute top-[-40%] right-[-20%] w-[250px] h-[250px] rounded-full border-[30px] border-white/10 pointer-events-none"></div>
@@ -873,7 +826,6 @@
                             </div>
                         </div>
 
-                        <!-- Card 2: Sparkline Trend Card -->
                         <div class="h-[240px]">
                             <div class="bg-white/[0.04] backdrop-blur-xl p-6 rounded-[28px] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/10 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1 h-full cursor-default">
                                 <div class="flex justify-between items-start mb-1">
@@ -897,7 +849,6 @@
                             </div>
                         </div>
 
-                        <!-- Card 3: Donut Ring Progress Card -->
                         <div class="h-[240px]">
                             <div class="bg-white/[0.04] backdrop-blur-xl p-6 rounded-[28px] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/10 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1 h-full cursor-default relative">
                                 <div class="flex justify-between items-start">
@@ -924,10 +875,8 @@
 
                     </div>
 
-                    <!-- ROW 2: 1 FEATURE HAZARD CARD + 6 SMALL STAT CARDS -->
                     <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
                         
-                        <!-- Left Feature Card -->
                         <div class="bg-white/[0.04] backdrop-blur-xl p-6 rounded-[28px] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/10 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1 h-[240px] cursor-default relative">
                             <div class="flex justify-between items-start">
                                 <h3 class="text-white text-[15px] font-bold tracking-tight">Gravity &amp; Rad Delta</h3>
@@ -943,7 +892,6 @@
                             </div>
                         </div>
 
-                        <!-- Right 6 Small Stat Cards -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:col-span-3">
                             <div class="bg-white/[0.04] backdrop-blur-xl p-5 rounded-[24px] border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.25)] hover:-translate-y-1 transition-transform duration-300">
                                 <div class="flex justify-between items-start mb-3">
@@ -996,7 +944,6 @@
 
                     </div>
 
-                    <!-- ROW 3: ANALYTICS GRAPH SECTION + SIDE-BY-SIDE VISUAL PREVIEW -->
                     <div class="bg-white/[0.03] backdrop-blur-2xl p-7 rounded-[32px] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/10">
                         <div class="flex flex-wrap justify-between items-end gap-4 mb-7">
                             <div>
@@ -1010,7 +957,6 @@
                             </div>
                         </div>
 
-                        <!-- Side-by-Side Earth vs Space Real Imagery Strip -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                             <div class="relative h-44 rounded-[22px] overflow-hidden border border-white/10 group">
                                 <img id="dash-earth-img" src="https://images.unsplash.com/photo-1542224566-6e85f2e6772f?auto=format&fit=crop&w=900&q=80" alt="Earth Analog Visual" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -1043,7 +989,6 @@
                             </div>
                         </div>
 
-                        <!-- Dual Chart Layout: Rounded Bar Chart + Multi-Parameter Radar Chart -->
                         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                             <div class="lg:col-span-7 h-[290px] w-full bg-white/[0.02] rounded-[24px] p-4 border border-white/[0.06]">
                                 <canvas id="similarityBarChart"></canvas>
@@ -1053,7 +998,6 @@
                             </div>
                         </div>
 
-                        <!-- Where the Analogy Breaks Down (Scientific Honesty) -->
                         <div class="mt-6 pt-6 border-t border-white/10">
                             <div class="flex items-center justify-between mb-3">
                                 <span class="text-[11px] font-mono font-bold uppercase tracking-widest text-[#ff8b6e]">
@@ -1088,7 +1032,6 @@
                             </div>
                         </div>
 
-                        <!-- "So What?" Factor: NASA Mission Engineering Utility Cards -->
                         <div class="mt-4">
                             <div class="text-[11px] font-mono font-bold uppercase tracking-widest text-emerald-400 mb-2.5">
                                 <i class="fa-solid fa-check-double mr-1.5"></i> "So What?" Factor — NASA Flight &amp; Hardware Engineering Utility
@@ -1097,7 +1040,6 @@
                         </div>
                     </div>
 
-                    <!-- ROW 4: 4-CORNER ROUNDED CRUD REGISTRY TABLE -->
                     <div class="bg-white/[0.03] backdrop-blur-2xl rounded-[32px] shadow-[0_8px_32px_0_rgba(0,0,0,0.35)] border border-white/10 overflow-hidden flex flex-col">
                         
                         <div class="p-8 pb-6 border-b border-white/10 flex flex-wrap gap-6 items-end justify-between">
@@ -1158,9 +1100,6 @@
 
                 </section>
 
-                <!-- ================================================================= -->
-                <!-- NEW PAGE A: PLANETARY TARGETS (MOON & MARS EXPLORATION)           -->
-                <!-- ================================================================= -->
                 <section id="page-targets" class="hidden relative z-10 w-full flex flex-col gap-6">
                     <div class="flex flex-wrap items-center justify-between gap-4">
                         <div>
@@ -1184,7 +1123,6 @@
                         </div>
                     </div>
 
-                    <!-- Live Mars Weather & Rover Telemetry Strip -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                         <div class="lg:col-span-5 bg-white/[0.03] backdrop-blur-2xl rounded-[28px] border border-white/10 p-6 flex flex-col justify-between">
                             <div class="flex items-center justify-between mb-3">
@@ -1219,7 +1157,6 @@
                             </div>
                         </div>
 
-                        <!-- Live Mars Rover Photos API Feed -->
                         <div class="lg:col-span-7 bg-white/[0.03] backdrop-blur-2xl rounded-[28px] border border-white/10 p-6 flex flex-col justify-between">
                             <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                                 <div>
@@ -1238,9 +1175,6 @@
                     <div id="planetary-targets-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"></div>
                 </section>
 
-                <!-- ================================================================= -->
-                <!-- NEW PAGE B: TERRESTRIAL DATABASE (NICHE ANALOG REPOSITORY)        -->
-                <!-- ================================================================= -->
                 <section id="page-terrestrial" class="hidden relative z-10 w-full flex flex-col gap-6">
                     <div class="flex flex-wrap items-center justify-between gap-4">
                         <div>
@@ -1267,7 +1201,6 @@
                         </div>
                     </div>
 
-                    <!-- Category Summary Strip -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                         <div class="bg-white/[0.03] backdrop-blur-xl p-5 rounded-[24px] border border-amber-400/20">
                             <div class="flex items-center justify-between mb-2">
@@ -1294,13 +1227,9 @@
                         </div>
                     </div>
 
-                    <!-- Terrestrial Database Rich Cards Grid -->
                     <div id="terrestrial-database-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
                 </section>
 
-                <!-- ================================================================= -->
-                <!-- NEW PAGE: AI MATCHMAKER (AUTO DISCOVER + CUSTOM SCAN)              -->
-                <!-- ================================================================= -->
                 <section id="page-matchmaker" class="hidden relative z-10 w-full flex flex-col gap-6">
                     <div class="flex flex-wrap items-center justify-between gap-4">
                         <div>
@@ -1326,7 +1255,6 @@
                         <button id="ai-tab-custom" onclick="showAiMatchmakerView('custom')" class="px-5 py-2.5 rounded-full bg-white/[0.05] hover:bg-white/10 border border-white/10 text-slate-300 text-xs font-bold transition-all cursor-pointer"><i class="fa-solid fa-sliders mr-2"></i>Custom Scan</button>
                     </div>
 
-                    <!-- AUTO DISCOVER -->
                     <div id="ai-discover-panel" class="flex flex-col gap-6">
                         <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
                             <div class="xl:col-span-8 bg-white/[0.03] backdrop-blur-2xl rounded-[28px] border border-white/10 p-6">
@@ -1433,9 +1361,6 @@
                     </div>
                 </section>
 
-                <!-- ================================================================= -->
-                <!-- NEW PAGE C: SCIENTIFIC REPORT / DOCUMENTATION (JUDGE BLUEPRINT)   -->
-                <!-- ================================================================= -->
                 <section id="page-science" class="hidden relative z-10 w-full flex flex-col gap-6">
                     <div class="flex flex-wrap items-center justify-between gap-4">
                         <div>
@@ -1453,7 +1378,6 @@
                         </div>
                     </div>
 
-                    <!-- Section 1 & 2: System Architecture + Quantitative Similarity Metric Formula -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                         <div class="lg:col-span-7 bg-white/[0.03] backdrop-blur-2xl p-7 rounded-[28px] border border-white/10 flex flex-col justify-between">
                             <div>
@@ -1466,7 +1390,6 @@
                                     Instead of presenting a static slide deck of a single desert, <strong class="text-white">AstroAnalogs</strong> operates as a programmatic multi-criteria decision and telemetry fusion engine. Each candidate Earth coordinate $(\phi_E, \lambda_E)$ is evaluated against extraterrestrial target telemetry $(\phi_T, \lambda_T)$ using a weighted composite similarity index $S_{\text{total}} \in [0, 100\%]$:
                                 </p>
 
-                                <!-- Mathematical Formula Card -->
                                 <div class="bg-[#07090f]/90 border border-white/10 rounded-2xl p-4 font-mono text-xs text-sky-300 mb-4 overflow-x-auto">
                                     <div class="text-[10px] text-slate-400 uppercase mb-1">Weighted Multi-Axis Similarity Equation:</div>
                                     <div class="text-sm font-bold text-white">
@@ -1478,7 +1401,6 @@
                                 </div>
                             </div>
 
-                            <!-- Live Interactive Weight & Score Breakdown for Currently Selected Pair -->
                             <div class="bg-white/[0.03] rounded-2xl p-4 border border-white/[0.07]">
                                 <div class="flex justify-between items-center mb-2">
                                     <span class="text-[11px] font-bold text-white">Active Pair Analytical Breakdown: <span id="sci-active-pair" class="text-[#ff8b6e]">Kazumura Lava Tube ↔ Marius Hills</span></span>
@@ -1488,7 +1410,6 @@
                             </div>
                         </div>
 
-                        <!-- Section 3: Advanced Multi-Sensor Data Fusion Pipeline -->
                         <div class="lg:col-span-5 bg-white/[0.03] backdrop-blur-2xl p-7 rounded-[28px] border border-white/10 flex flex-col justify-between">
                             <div>
                                 <span class="px-3 py-1 rounded-full bg-sky-500/15 border border-sky-400/30 text-[10px] font-mono font-bold text-sky-300">02 · MULTI-SENSOR DATA FUSION</span>
@@ -1530,7 +1451,6 @@
                         </div>
                     </div>
 
-                    <!-- Section 4: Where the Analogy Breaks Down (Critical Thinking Matrix) -->
                     <div class="bg-white/[0.03] backdrop-blur-2xl p-7 rounded-[28px] border border-white/10">
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                             <div>
@@ -1585,7 +1505,6 @@
                         </div>
                     </div>
 
-                    <!-- Section 5: Niche Innovation + "So What?" Mission Deliverables -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-white/[0.03] backdrop-blur-2xl p-6 rounded-[28px] border border-white/10">
                             <span class="px-3 py-1 rounded-full bg-purple-500/15 border border-purple-400/30 text-[10px] font-mono font-bold text-purple-300">04 · NICHE DISCOVERY STRATEGY</span>
@@ -1605,9 +1524,6 @@
                     </div>
                 </section>
 
-                <!-- ================================================================= -->
-                <!-- PAGE 2: 3D EARTH & NASA GIBS VIEW                                 -->
-                <!-- ================================================================= -->
                 <section id="page-globe" class="hidden relative z-10 w-full flex flex-col gap-6">
                     <div class="flex flex-wrap items-center justify-between gap-4">
                         <div>
@@ -1624,7 +1540,6 @@
                         </div>
                     </div>
 
-                    <!-- Requested NASA Earth-observation and planetary-mission archive switches -->
                     <div class="flex flex-wrap items-center gap-x-8 gap-y-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10">
                         <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
                             <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-sky-300">Earth Observation</span>
@@ -1693,7 +1608,6 @@
                         </div>
                     </div>
 
-                    <!-- Global Stations 4-Corner Rounded Table -->
                     <div class="bg-white/[0.03] backdrop-blur-2xl rounded-[32px] border border-white/10 overflow-hidden flex flex-col">
                         <div class="p-8 pb-5 border-b border-white/10 flex justify-between items-center">
                             <div>
@@ -1720,9 +1634,6 @@
                     </div>
                 </section>
 
-                <!-- ================================================================= -->
-                <!-- PAGE 3: NASA LIVE TELEMETRY                                       -->
-                <!-- ================================================================= -->
                 <section id="page-telemetry" class="hidden relative z-10 w-full flex flex-col gap-6">
                     <div class="flex flex-wrap items-center justify-between gap-4">
                         <div>
@@ -1740,7 +1651,6 @@
                         </div>
                     </div>
 
-                    <!-- 4 Telemetry KPI Cards -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         <div class="bg-white/[0.04] backdrop-blur-xl p-5 rounded-[24px] border border-white/10">
                             <p class="text-[12px] font-medium text-slate-400">Mean Surface Temp (T2M)</p>
@@ -1764,7 +1674,6 @@
                         </div>
                     </div>
 
-                    <!-- Telemetry Comparison Bar Chart -->
                     <div class="bg-white/[0.03] backdrop-blur-2xl p-7 rounded-[32px] border border-white/10">
                         <div class="flex justify-between items-center mb-6">
                             <div>
@@ -1778,7 +1687,6 @@
                         </div>
                     </div>
 
-                    <!-- Live API & CMR Granules Table -->
                     <div class="bg-white/[0.03] backdrop-blur-2xl rounded-[32px] border border-white/10 overflow-hidden flex flex-col">
                         <div class="p-8 pb-5 border-b border-white/10 flex justify-between items-center">
                             <div>
@@ -1805,9 +1713,6 @@
                     </div>
                 </section>
 
-                <!-- ================================================================= -->
-                <!-- PAGE 4: 3D DEM TOPOGRAPHY                                         -->
-                <!-- ================================================================= -->
                 <section id="page-topography" class="hidden relative z-10 w-full flex flex-col gap-6">
                     <div class="flex flex-wrap items-center justify-between gap-4">
                         <div>
@@ -1824,7 +1729,6 @@
                         </div>
                     </div>
 
-                    <!-- 3D Wireframe Canvas Card -->
                     <div class="bg-white/[0.03] backdrop-blur-2xl rounded-[32px] border border-white/10 overflow-hidden">
                         <div class="px-8 py-5 border-b border-white/10 flex justify-between items-center">
                             <h3 class="text-[16px] font-bold text-white">Digital Elevation Model (DEM) 3D Wireframe Mesh</h3>
@@ -1838,7 +1742,6 @@
                         </div>
                     </div>
 
-                    <!-- DEM Morphometry Table -->
                     <div class="bg-white/[0.03] backdrop-blur-2xl rounded-[32px] border border-white/10 overflow-hidden flex flex-col">
                         <div class="p-8 pb-5 border-b border-white/10">
                             <h3 class="text-[18px] font-bold text-white">DEM Morphometric Comparison Registry</h3>
@@ -1868,9 +1771,6 @@
         </main>
     </div>
 
-    <!-- ===================================================================== -->
-    <!-- SLIDE-OVER MISSION CONTROL DRAWER                                     -->
-    <!-- ===================================================================== -->
     <div id="drawer-backdrop" onclick="toggleMissionDrawer(false)" class="hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity"></div>
 
     <aside id="mission-drawer" class="fixed top-4 right-4 h-[calc(100vh-32px)] w-80 bg-[#121622]/95 backdrop-blur-2xl rounded-[32px] border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.65)] z-50 transform transition-transform duration-300 ease-in-out translate-x-[120%]">
@@ -1924,7 +1824,6 @@
                 </div>
             </div>
 
-            <!-- CHOOSE THE NODE MATRIX -->
             <div class="p-3.5 rounded-2xl bg-white/[0.03] border border-[#e04826]/30 mb-5">
                 <div class="flex items-center justify-between mb-2.5">
                     <span class="text-[10px] font-display font-bold uppercase tracking-[0.12em] text-[#ff8b6e]">CHOOSE THE NODE</span>
@@ -1938,7 +1837,6 @@
                 </div>
             </div>
 
-            <!-- SPACE TRIP BOARDING PASS -->
             <div class="flight-ticket-card p-4 mt-auto">
                 <div class="flex items-start justify-between mb-2">
                     <div>
@@ -1976,9 +1874,6 @@
         </div>
     </aside>
 
-    <!-- ===================================================================== -->
-    <!-- CRUD MODAL: ADD / EDIT PLANETARY ANALOG RECORD                        -->
-    <!-- ===================================================================== -->
     <div id="crud-modal" class="hidden fixed inset-0 z-50 bg-black/65 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-[#141824]/95 backdrop-blur-2xl p-8 rounded-[32px] shadow-[0_16px_40px_rgba(0,0,0,0.75)] w-full max-w-lg border border-white/15">
             <div class="flex justify-between items-center mb-6">
@@ -2060,13 +1955,9 @@
         </div>
     </div>
 
-    <!-- ===================================================================== -->
-    <!-- COMPLETE APPLICATION SCRIPT (THREE.JS, CHART.JS, CRUD & NASA APIS)    -->
-    <!-- ===================================================================== -->
     <script type="module">
         import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 
-        // 1. Live Clock & Formatted Date
         function updateClockAndDate() {
             const now = new Date();
             const clockEl = document.getElementById('utc-clock');
@@ -2084,7 +1975,6 @@
         updateClockAndDate();
         setInterval(updateClockAndDate, 1000);
 
-        // 2. Sidebar Collapse & Slide-Over Drawer Controls
         let isSidebarCollapsed = false;
         window.toggleSidebar = function() {
             isSidebarCollapsed = !isSidebarCollapsed;
@@ -2137,7 +2027,6 @@
             }
         };
 
-        // 3. Notifications System
         let telemetryNotifications = [
             { id: 1, title: 'Niche Lava Tube Match (94.1%)', message: 'Kazumura Cave ↔ Marius Hills Skylight verified via LRO.', time: '2 mins ago' },
             { id: 2, title: 'Extremophile Brine Sync', message: 'Dallol & Rio Tinto sulfate spectra matched to Jezero.', time: '11 mins ago' },
@@ -2188,7 +2077,6 @@
             renderNotifications();
         }
 
-        // 4. Expanded Niche NASA Benchmark Dataset (Beyond the Obvious)
         const DEFAULT_RECORDS = [
             {
                 id: 'ANL-001',
@@ -2424,7 +2312,6 @@
             }
         ];
 
-        // 5. Planetary Targets Reference Repository (Lunar Bases & Mars Exploration)
         const PLANETARY_TARGETS_DATA = [
             {
                 id: 'TGT-M1',
@@ -2548,9 +2435,6 @@
             window.location.href = '/';
         };
 
-        // 5A. AI Matchmaker candidate library.
-        // Candidate coordinates are approximate region centers. Slope and feature scores are preliminary
-        // screening priors and MUST be confirmed with DEM/spectral/field measurements before publication.
         const AI_DISCOVERY_CANDIDATES = [
             {
                 id: 'DISC-HOLU', name: 'Holuhraun Lava Flow Field, Iceland', lat: 64.86, lon: -16.83,
@@ -2882,7 +2766,6 @@
             switchPage('similarity');
         };
 
-        // 6. Shared page banner content and page navigation.
         const PAGE_HERO_CONTENT = {
             similarity: {
                 eyebrow: 'MISSION CONTROL / OVERVIEW',
@@ -3010,7 +2893,6 @@
             }
         };
 
-        // 7. Planetary Targets Page Logic + Live Mars Rover Photos API
         window.filterPlanetaryTargets = function(body, btnEl) {
             activeTargetFilter = body;
             document.querySelectorAll('.target-tab-btn').forEach(b => {
@@ -3115,7 +2997,6 @@
                     }
                 }
             } catch (_) {
-                // Uses verified NASA benchmark imagery on timeout/rate-limit
             }
 
             gallery.innerHTML = displayPhotos.map(p => `
@@ -3130,7 +3011,6 @@
             `).join('');
         };
 
-        // 8. Terrestrial Database Page Logic (Niche Categorization)
         window.filterTerrestrialCategory = function(cat, btnEl) {
             activeTerrestrialFilter = cat;
             document.querySelectorAll('.terr-cat-btn').forEach(b => {
@@ -3209,7 +3089,6 @@
             }).join('');
         }
 
-        // 9. Drawer Node Matrix & Sync Controls
         function renderSidebarNodeMatrix() {
             const container = document.getElementById('sidebar-node-matrix');
             if (!container) return;
@@ -3250,7 +3129,6 @@
             renderTerrestrialDatabaseGrid();
         }
 
-        // 10. Select Active Record & Update All Cards, Charts & Scientific Report
         window.selectAnalogRecord = function(id) {
             const rec = analogRecords.find(r => r.id === id) || analogRecords[0];
             if (!rec) return;
@@ -3261,7 +3139,6 @@
                 if (el) el.value = rec.id;
             });
 
-            // Update Hero Banner & Top 3 Cards
             document.getElementById('hero-active-pair').textContent = `${rec.earthName.split(',')[0]} ↔ ${rec.targetCrater}`;
             document.getElementById('hero-active-score').textContent = `${rec.overall}%`;
 
@@ -3273,7 +3150,6 @@
             document.getElementById('card3-geo-pct').textContent = `${rec.geology}%`;
             document.getElementById('card3-topo-pill').textContent = `Topo ${rec.topography}%`;
 
-            // Update Dashboard Side-by-Side Real Imagery
             document.getElementById('dash-earth-img').src = rec.earthImg;
             document.getElementById('dash-earth-title').textContent = rec.earthName;
             document.getElementById('dash-earth-sub').textContent = rec.terrainClass;
@@ -3299,7 +3175,6 @@
             if (locatorBody) locatorBody.textContent = rec.targetBody;
             if (locatorUtility) locatorUtility.textContent = rec.utilities?.[0]?.desc || 'Compare terrestrial terrain against planetary mission requirements.';
 
-            // Update Scientific Report Live Formula Breakdown
             const sciPair = document.getElementById('sci-active-pair');
             const sciCalc = document.getElementById('sci-active-calc');
             const sciBreakdown = document.getElementById('sci-formula-breakdown');
@@ -3322,11 +3197,9 @@
                 `;
             }
 
-            // Update Feature Hazard Card
             document.getElementById('feat-grav-val').textContent = rec.gravityBadge;
             document.getElementById('feat-rad-sub').textContent = `${rec.radBadge} · Boundary Offset`;
 
-            // Update Drawer Boarding Pass
             document.getElementById('sidebar-active-name').textContent = rec.earthName.split(',')[0];
             document.getElementById('sidebar-dest-code').textContent = rec.targetBody;
             document.getElementById('sidebar-active-target').textContent = rec.targetCrater;
@@ -3337,7 +3210,6 @@
 
             renderSidebarNodeMatrix();
 
-            // Update Analytics & Boundary Offsets
             document.getElementById('sim-chart-subtitle').textContent = `${rec.earthName} vs. ${rec.targetCrater} (${rec.targetBody})`;
             document.getElementById('sim-overall-badge').textContent = `${rec.overall}% MATCH`;
 
@@ -3701,7 +3573,6 @@
                     if (requestId !== activeGibsTextureRequest) return;
                     console.warn(`NASA GIBS layer could not be loaded (${config.layer}).`, error);
                     if (badge) badge.textContent = `${config.label} · UNAVAILABLE`;
-                    // Keep the existing fallback/last-good texture rather than blanking the globe.
                 }
             );
         }
@@ -3799,8 +3670,6 @@
                 loadGibsEarthTexture(enabledArchiveLayers.landsat ? 'landsat' : selectedGibsLayer);
             }
 
-            // Attach a renderer only when its page is visible. Both views share the same scene,
-            // Earth texture, rotation and active station pin, avoiding duplicate globe state.
             ['dashboard-earth-canvas', 'threejs-earth-canvas'].forEach(id => {
                 const container = document.getElementById(id);
                 if (container && container.clientWidth > 0) attachEarthRenderer(container);
@@ -3956,7 +3825,6 @@
             if (statusPill) statusPill.textContent = 'STATUS: QUERYING NASA POWER...';
             document.getElementById('telemetry-chart-coords').textContent = `LAT: ${lat.toFixed(2)}° | LON: ${lon.toFixed(2)}°`;
 
-            // These are display fallbacks only. They are never labelled as live or cached API results.
             let t2m = lat < -50 ? -18.4 : (lat > 50 ? -11.2 : 15.8);
             let solar = lat < -50 ? 2.9 : 5.4;
             let rh = 64.2;
@@ -4444,7 +4312,6 @@
         updatePageHero('similarity');
         syncAllControls();
         selectAnalogRecord(activeRecordId);
-        // Dashboard is the initially visible page, so attach its 3D Earth renderer immediately.
         window.setTimeout(() => {
             initThreeJsEarth();
             const activeRecord = analogRecords.find(record => record.id === activeRecordId) || analogRecords[0];
